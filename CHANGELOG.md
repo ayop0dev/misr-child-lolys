@@ -1,7 +1,8 @@
 # Misr Child (Loly's) Changelog
 
-## Unreleased
+## 1.0.0
 
+- First release. Needs Egstore theme 1.3.9 (story section) and egstore-commerce 1.3.6.
 - **Art Direction Redesign: "Mostly Imagery, Very Little Text"**:
   - **First Screen / Hero**: Completely image-forward first screen. On phones (390×844), the real Full Kit 18-mini set dominates the viewport (1:1 aspect ratio, `order: -1`) with no badges blocking the image, zero paragraph fluff, and a single, confident CTA ("Explore The Kits").
   - **Removed Redundant Mood Banners**: Eliminated the redundant 3-banner promo section that repeated the kit boxes. The visitor now glides immediately from the hero into the morning chapter.

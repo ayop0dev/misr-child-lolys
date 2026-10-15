@@ -34,7 +34,7 @@
   },
   "signing": {
     "algorithm": "ed25519",
-    "public_key": "TODO_SIGNING_PUBLIC_KEY_PLACEHOLDER"
+    "public_key": "SDemSPAPBRp5G0aQ3G1TxltYaBeukVku/jHqc6WR2f0="
   },
   "rollback": {
     "strategy": "first-release-baseline",
