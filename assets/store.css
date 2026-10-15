@@ -1,0 +1,729 @@
+/*
+ * Loly's Glam Brand Layer (Misr Child Theme).
+ *
+ * Art Direction: "The Sensory Lookbook"
+ * Brand DNA: "Scents that bring you compliments" — French fragrance oils crafted in Egypt.
+ * Visual concept: Seamless chronological journey from morning daylight (Strawberry) -> golden afternoon (Vanilla) -> midnight velvet noir (Naughty Nights) -> grand dawn finale (Full Kit).
+ *
+ * Constraints:
+ *   - Two font weights only: 400 (normal) and 700 (bold).
+ *   - No !important anywhere in stylesheets.
+ *   - Colors, radii and dimensions via CSS variables & design tokens.
+ *   - Logical properties throughout for LTR & RTL parity.
+ */
+
+/* ==========================================================================
+   Storefront Design Tokens (Scoped to body.home)
+   ========================================================================== */
+body.home {
+	--eg-container: 82rem;
+
+	/* Core Brand Palette */
+	--color-canvas: #FFFDFB;
+	--color-surface: #FFFFFF;
+	--color-surface-soft: #FBF6F8;
+	--color-ink: #1C131D;
+	--color-ink-muted: #5C4D5E;
+	--color-line: rgba(28, 19, 29, 0.08);
+	--color-line-strong: rgba(28, 19, 29, 0.16);
+
+	/* Raspberry Pink (Logo & Primary Brand) */
+	--color-primary: #D82B6B;
+	--color-primary-dark: #BF1E59;
+	--color-primary-light: #E64C84;
+	--color-primary-mist: #FDF0F4;
+	--color-primary-contrast: #FFFFFF;
+
+	/* Radii */
+	--radius-xs: 6px;
+	--radius-sm: 10px;
+	--radius-md: 16px;
+	--radius-lg: 24px;
+	--radius-pill: 9999px;
+
+	/* Elevation */
+	--shadow-soft: 0 4px 20px rgba(28, 19, 29, 0.05);
+	--shadow-card: 0 8px 26px rgba(28, 19, 29, 0.07);
+	--shadow-hover: 0 16px 36px rgba(216, 43, 107, 0.15);
+}
+
+/* ==========================================================================
+   Shared Container & Section Spacing
+   ========================================================================== */
+body.home .eg-hero__inner,
+body.home .eg-story__inner,
+body.home .eg-features__inner,
+body.home .eg-product-collection__inner {
+	inline-size: 100%;
+	max-inline-size: var(--eg-container);
+	margin-inline: auto;
+	padding-inline: 1.5rem;
+	box-sizing: border-box;
+}
+
+@media (max-width: 47.99rem) {
+	body.home .eg-hero__inner,
+	body.home .eg-story__inner,
+	body.home .eg-features__inner,
+	body.home .eg-product-collection__inner {
+		padding-inline: 1rem;
+	}
+}
+
+/* ==========================================================================
+   HERO: Image-Dominant First Screen
+   ========================================================================== */
+body.home .eg-hero {
+	--eg-hero-accent: var(--color-primary);
+	--eg-hero-accent-text: #FFFFFF;
+	--eg-hero-radius: 9999px;
+	background: linear-gradient(135deg, #FFF0F4 0%, #FFFDF9 50%, #FAF4EB 100%);
+	padding-block: 0;
+	min-block-size: auto;
+	border-block-end: 1px solid rgba(216, 43, 107, 0.08);
+}
+
+body.home .eg-hero__inner {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 1.5rem;
+	align-items: center;
+	padding-block: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+@media (min-width: 64rem) {
+	body.home .eg-hero__inner {
+		grid-template-columns: 1fr 1fr;
+		gap: clamp(2.5rem, 5vw, 4.5rem);
+		padding-block: clamp(2.5rem, 4.5vw, 4rem);
+	}
+}
+
+body.home .eg-hero__content {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+body.home .eg-hero__eyebrow--pill {
+	background: #FDE8EF;
+	color: var(--color-primary);
+	border: 1px solid rgba(216, 43, 107, 0.2);
+	font-weight: 700;
+	font-size: 0.75rem;
+	padding: 0.35rem 0.85rem;
+	border-radius: 9999px;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	align-self: flex-start;
+}
+
+body.home .eg-hero__eyebrow-icon {
+	inline-size: 0.85rem;
+	block-size: 0.85rem;
+}
+
+body.home .eg-hero__title {
+	font-size: clamp(2rem, 4.5vw, 3.5rem);
+	line-height: 1.15;
+	letter-spacing: -0.02em;
+	color: var(--color-ink);
+	margin: 0;
+}
+
+body.home .eg-hero__title-highlight {
+	display: block;
+	color: var(--color-primary);
+	margin-block-start: 0.25rem;
+}
+
+body.home .eg-hero__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin-block-start: 0.5rem;
+}
+
+body.home .eg-hero__action {
+	min-block-size: 46px;
+	padding-inline: 2rem;
+	border-radius: 9999px;
+	font-weight: 700;
+	font-size: 0.9375rem;
+	background: var(--color-primary);
+	color: #FFFFFF;
+	box-shadow: 0 6px 18px rgba(216, 43, 107, 0.28);
+	transition: opacity 160ms ease, transform 160ms ease;
+	text-decoration: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+}
+
+body.home .eg-hero__action:hover {
+	opacity: 0.92;
+	transform: translateY(-1px);
+}
+
+body.home .eg-hero__action-icon {
+	inline-size: 1.125rem;
+	block-size: 1.125rem;
+}
+
+[dir="ltr"] body.home .eg-hero__action-icon {
+	transform: scaleX(-1);
+}
+
+body.home .eg-hero__figure {
+	position: relative;
+	border-radius: var(--radius-lg);
+	overflow: hidden;
+	aspect-ratio: 4 / 5;
+	max-inline-size: 30rem;
+	inline-size: 100%;
+	justify-self: center;
+	box-shadow: 0 20px 48px rgba(216, 43, 107, 0.16);
+	background: #FFFDFB;
+}
+
+body.home .eg-hero__figure .eg-hero__image {
+	display: block;
+	inline-size: 100%;
+	block-size: 100%;
+	object-fit: cover;
+}
+
+/* Mobile Hero: Visual Dominant First Screen */
+@media (max-width: 47.99rem) {
+	body.home .eg-hero__inner {
+		padding-block: 1rem 1.75rem;
+		gap: 1rem;
+		text-align: center;
+		justify-items: center;
+	}
+
+	body.home .eg-hero__figure {
+		order: -1; /* Puts authentic packaging at the very top of the phone */
+		aspect-ratio: 1 / 1;
+		max-inline-size: 21rem;
+		margin-inline: auto;
+		border-radius: var(--radius-md);
+		box-shadow: 0 12px 32px rgba(216, 43, 107, 0.14);
+	}
+
+	body.home .eg-hero__content {
+		align-items: center;
+		gap: 0.65rem;
+	}
+
+	body.home .eg-hero__eyebrow--pill {
+		align-self: center;
+	}
+
+	body.home .eg-hero__title {
+		font-size: clamp(1.75rem, 6.5vw, 2.25rem);
+		line-height: 1.15;
+	}
+
+	body.home .eg-hero__actions {
+		justify-content: center;
+	}
+}
+
+/* ==========================================================================
+   DAY-TO-NIGHT CHRONOLOGICAL ATMOSPHERE (Colour, Light & Texture Progression)
+   ========================================================================== */
+
+/* Seamless Story Transitions: Remove subpixel borders and overlap boundaries */
+body.home .eg-story {
+	border-block-end: 0;
+	border: 0;
+}
+
+body.home #vanilla-vibes,
+body.home #naughty-nights,
+body.home #full-kit {
+	margin-block-start: -2px;
+}
+
+/* 1. MORNING DAYLIGHT · STRAWBERRY STICKS (Fresh Berry Pink & Crisp Light) */
+body.home #strawberry-sticks {
+	background: linear-gradient(180deg, #FFFFFF 0%, #FFF5F8 45%, #FAF4EB 100%);
+	--eg-story-bg: transparent;
+	--eg-story-ink: #26101B;
+	--eg-story-ink-muted: #664654;
+	--eg-story-accent: #C9205F;
+	--eg-story-accent-text: #FFFFFF;
+	--eg-story-chip-bg: #FFEAF0;
+	--eg-story-chip-ink: #A3194B;
+	--eg-story-chip-border: rgba(201, 32, 95, 0.16);
+	--eg-story-eyebrow-bg: #FFE0E9;
+	--eg-story-eyebrow-ink: #A3194B;
+	--eg-story-radius: var(--radius-md);
+	--eg-story-border: transparent;
+	--eg-story-padding-block: clamp(2.5rem, 5vw, 4rem);
+}
+
+/* 2. AFTERNOON GOLDEN HOUR · VANILLA VIBES (Cozy Vanilla, Amber & Twilight Ease) */
+body.home #vanilla-vibes {
+	background: linear-gradient(180deg, #FAF4EB 0%, #F5EDE0 60%, #2A1728 100%);
+	--eg-story-bg: transparent;
+	--eg-story-ink: #241D14;
+	--eg-story-ink-muted: #665B4D;
+	--eg-story-accent: #9A6216;
+	--eg-story-accent-text: #FFFFFF;
+	--eg-story-chip-bg: #F5EFE3;
+	--eg-story-chip-ink: #6B4918;
+	--eg-story-chip-border: rgba(154, 98, 22, 0.2);
+	--eg-story-eyebrow-bg: #F7EEDA;
+	--eg-story-eyebrow-ink: #8F5E1B;
+	--eg-story-radius: var(--radius-md);
+	--eg-story-border: transparent;
+	--eg-story-padding-block: clamp(2.5rem, 5vw, 4rem);
+}
+
+/* 3. MIDNIGHT VELVET NOIR · NAUGHTY NIGHTS (Deep Obsidian & Crimson Chiaroscuro) */
+body.home #naughty-nights {
+	background: linear-gradient(180deg, #2A1728 0%, #140C1A 15%, #140C1A 85%, #2A1728 100%);
+	--eg-story-bg: transparent;
+	--eg-story-ink: #F9F6FA;
+	--eg-story-ink-muted: #C0B0C4;
+	--eg-story-accent: #D31E47;
+	--eg-story-accent-text: #FFFFFF;
+	--eg-story-chip-bg: #271A2D;
+	--eg-story-chip-ink: #F7D8E2;
+	--eg-story-chip-border: rgba(211, 30, 71, 0.32);
+	--eg-story-eyebrow-bg: #2E1528;
+	--eg-story-eyebrow-ink: #FF6688;
+	--eg-story-radius: var(--radius-md);
+	--eg-story-border: transparent;
+	--eg-story-padding-block: clamp(3rem, 6vw, 4.5rem);
+}
+
+body.home #naughty-nights .eg-story__title-highlight {
+	color: #FF7597;
+}
+
+/* 4. THE GRAND FINALE · LOLY'S FULL KIT (Luminous Pearl & Rose Gold Horizon) */
+body.home #full-kit {
+	background: linear-gradient(180deg, #2A1728 0%, #FFF5F8 25%, #FFFFFF 100%);
+	--eg-story-bg: transparent;
+	--eg-story-ink: #1C131D;
+	--eg-story-ink-muted: #5C4D5E;
+	--eg-story-accent: #C9205F;
+	--eg-story-accent-text: #FFFFFF;
+	--eg-story-chip-bg: #FFEAF0;
+	--eg-story-chip-ink: #A3194B;
+	--eg-story-chip-border: rgba(201, 32, 95, 0.2);
+	--eg-story-eyebrow-bg: #FFE0E9;
+	--eg-story-eyebrow-ink: #A3194B;
+	--eg-story-radius: var(--radius-md);
+	--eg-story-border: transparent;
+	--eg-story-padding-block: clamp(3rem, 6vw, 4.5rem);
+}
+
+body.home #full-kit .eg-story__media-frame {
+	aspect-ratio: 4 / 5;
+	max-inline-size: 28rem;
+	border-radius: var(--radius-lg);
+	box-shadow: 0 16px 40px rgba(216, 43, 107, 0.14);
+}
+
+/* ==========================================================================
+   STORY MOSAIC: Editorial 3-Image Composition
+   ========================================================================== */
+body.home .eg-story--mosaic .eg-story__media-frame {
+	border-radius: var(--radius-md);
+	overflow: hidden;
+	box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+	background: #FFFDFB;
+}
+
+body.home .eg-story--mosaic .eg-story__secondary-frame,
+body.home .eg-story--mosaic .eg-story__tertiary-frame {
+	border-radius: var(--radius-md);
+	overflow: hidden;
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+	transition: transform 200ms ease;
+	background: #FFFDFB;
+}
+
+body.home .eg-story--mosaic .eg-story__secondary-frame:hover,
+body.home .eg-story--mosaic .eg-story__tertiary-frame:hover {
+	transform: scale(1.02);
+}
+
+/* ==========================================================================
+   MINI PRODUCT CARDS: Compact Editorial Sampler Flight
+   Solves "huge vertical cards on desktop" and "endless scrolling on mobile":
+   - Desktop: 6-column horizontal tasting tray (entire kit visible at a glance).
+   - Mobile: Horizontal swipeable tasting flight (snap-scroll across all 6 minis in 220px).
+   ========================================================================== */
+body.home .eg-story__products {
+	margin-block-start: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+/* Desktop: 6-column tray */
+@media (min-width: 64rem) {
+	body.home .eg-story__products .eg-product-collection__grid {
+		display: grid;
+		grid-template-columns: repeat(6, minmax(0, 1fr));
+		gap: 0.85rem;
+		align-items: stretch;
+	}
+}
+
+/* Tablet: 3 columns */
+@media (min-width: 48rem) and (max-width: 63.99rem) {
+	body.home .eg-story__products .eg-product-collection__grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1rem;
+		align-items: stretch;
+	}
+}
+
+/* Mobile: Horizontal Swipeable Fragrance Flight (Thumb-friendly, zero vertical clutter) */
+@media (max-width: 47.99rem) {
+	body.home .eg-story__products .eg-product-collection__grid {
+		display: grid;
+		grid-template-columns: none;
+		grid-auto-flow: column;
+		grid-auto-columns: clamp(9.5rem, 42vw, 11rem);
+		gap: 0.75rem;
+		overflow-x: auto;
+		overscroll-behavior-x: contain;
+		scroll-snap-type: x mandatory;
+		scrollbar-width: none;
+		padding-block-end: 0.5rem;
+		margin-inline: -1rem;
+		padding-inline: 1rem;
+	}
+
+	body.home .eg-story__products .eg-product-collection__grid::-webkit-scrollbar {
+		display: none;
+	}
+
+	body.home .eg-story__products .eg-product-card {
+		scroll-snap-align: start;
+	}
+}
+
+/* Compact Editorial Card Styling */
+body.home .eg-story__products .eg-product-card {
+	border: 1px solid var(--color-line);
+	border-radius: var(--radius-sm);
+	padding: 0.5rem;
+	background: #FFFFFF;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+	transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+	display: flex;
+	flex-direction: column;
+}
+
+body.home .eg-story__products .eg-product-card:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 22px rgba(216, 43, 107, 0.12);
+}
+
+body.home .eg-story__products .eg-product-card .eg-product-card__inner {
+	background: transparent;
+}
+
+/* Contained Bottle Image Frame */
+body.home .eg-story__products .eg-product-card__media-wrapper {
+	aspect-ratio: 1 / 1;
+	border-radius: var(--radius-xs);
+	background: #FAF8F9;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.35rem;
+	overflow: hidden;
+}
+
+body.home .eg-story__products .eg-product-card__image {
+	display: block;
+	inline-size: 100%;
+	block-size: 100%;
+	object-fit: contain;
+	filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.06));
+	transition: transform 200ms ease;
+}
+
+body.home .eg-story__products .eg-product-card:hover .eg-product-card__image {
+	transform: scale(1.05);
+}
+
+/* Clean up visual noise: hide ratings, categories, summaries, quick-view, wishlist, and loud sale badges */
+body.home .eg-story__products .eg-product-card__rating,
+body.home .eg-story__products .eg-product-card__category,
+body.home .eg-story__products .eg-product-card__summary,
+body.home .eg-story__products .eg-product-card__quick-view-btn,
+body.home .eg-story__products .eg-wishlist-toggle,
+body.home .eg-story__products .eg-product-card__badge--sale {
+	display: none;
+}
+
+/* Card Content: Title, Price, Add to Cart */
+body.home .eg-story__products .eg-product-card__content {
+	padding: 0.45rem 0 0;
+	gap: 0.2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	flex: 1;
+}
+
+body.home .eg-story__products .eg-product-card__title {
+	font-size: 0.8125rem;
+	font-weight: 700;
+	line-height: 1.25;
+	color: var(--color-ink);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	inline-size: 100%;
+	margin: 0;
+}
+
+body.home .eg-story__products .eg-product-card__title a {
+	color: inherit;
+	text-decoration: none;
+}
+
+body.home .eg-story__products .eg-product-card__price {
+	font-size: 0.8125rem;
+	font-weight: 700;
+	color: var(--color-primary);
+	display: flex;
+	align-items: baseline;
+	justify-content: center;
+	gap: 0.35rem;
+	margin: 0;
+}
+
+body.home .eg-story__products .eg-product-card__price ins {
+	text-decoration: none;
+	color: var(--color-primary);
+}
+
+body.home .eg-story__products .eg-product-card__price del {
+	font-size: 0.6875rem;
+	font-weight: 400;
+	color: var(--color-ink-muted);
+}
+
+body.home .eg-story__products a.eg-product-card__action,
+body.home .eg-story__products .woocommerce .eg-product-card a.eg-product-card__action {
+	inline-size: 100%;
+	min-block-size: 32px;
+	padding: 0 0.5rem;
+	font-size: 0.75rem;
+	font-weight: 700;
+	border-radius: var(--radius-xs);
+	margin-block-start: auto;
+	background: var(--color-primary);
+	color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.3rem;
+	text-decoration: none;
+	border: 0;
+	cursor: pointer;
+	transition: opacity 160ms ease, background-color 160ms ease;
+}
+
+body.home .eg-story__products a.eg-product-card__action:hover {
+	opacity: 0.92;
+}
+
+body.home .eg-story__products .eg-product-card__action-icon {
+	inline-size: 0.85rem;
+	block-size: 0.85rem;
+}
+
+/* 1. Strawberry Sticks Mini Sampler Colors (Fresh Berry Pink DNA) */
+body.home #strawberry-sticks .eg-story__products .eg-product-card:hover {
+	box-shadow: 0 8px 22px rgba(201, 32, 95, 0.16);
+	border-color: rgba(201, 32, 95, 0.25);
+}
+
+body.home #strawberry-sticks .eg-story__products .eg-product-card__title a {
+	color: #26101B;
+}
+
+body.home #strawberry-sticks .eg-story__products .eg-product-card__price,
+body.home #strawberry-sticks .eg-story__products .eg-product-card__price ins {
+	color: #C9205F;
+}
+
+body.home #strawberry-sticks .eg-story__products .eg-product-card__price del {
+	color: #664654;
+}
+
+body.home #strawberry-sticks .eg-story__products a.eg-product-card__action,
+body.home #strawberry-sticks .eg-story__products .woocommerce .eg-product-card a.eg-product-card__action {
+	background: #C9205F;
+	color: #FFFFFF;
+}
+
+body.home #strawberry-sticks .eg-story__products a.eg-product-card__action:hover {
+	background: #B01850;
+}
+
+/* 2. Vanilla Vibes Mini Sampler Colors (Warm Golden Amber DNA) */
+body.home #vanilla-vibes .eg-story__products .eg-product-card:hover {
+	box-shadow: 0 8px 22px rgba(154, 98, 22, 0.18);
+	border-color: rgba(154, 98, 22, 0.25);
+}
+
+body.home #vanilla-vibes .eg-story__products .eg-product-card__title a {
+	color: #241D14;
+}
+
+body.home #vanilla-vibes .eg-story__products .eg-product-card__price,
+body.home #vanilla-vibes .eg-story__products .eg-product-card__price ins {
+	color: #9A6216;
+}
+
+body.home #vanilla-vibes .eg-story__products .eg-product-card__price del {
+	color: #665B4D;
+}
+
+body.home #vanilla-vibes .eg-story__products a.eg-product-card__action,
+body.home #vanilla-vibes .eg-story__products .woocommerce .eg-product-card a.eg-product-card__action {
+	background: #9A6216;
+	color: #FFFFFF;
+}
+
+body.home #vanilla-vibes .eg-story__products a.eg-product-card__action:hover {
+	background: #825211;
+}
+
+/* 3. Naughty Nights Nocturnal Dark-Mode Sampler (Deep Velvet Obsidian DNA) */
+body.home #naughty-nights .eg-story__products .eg-product-card {
+	background: #1E1224;
+	border-color: rgba(255, 255, 255, 0.12);
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+body.home #naughty-nights .eg-story__products .eg-product-card:hover {
+	border-color: rgba(211, 30, 71, 0.45);
+	box-shadow: 0 8px 24px rgba(211, 30, 71, 0.25);
+}
+
+body.home #naughty-nights .eg-story__products .eg-product-card .eg-product-card__inner {
+	background: transparent;
+}
+
+body.home #naughty-nights .eg-story__products .eg-product-card__media-wrapper {
+	background: #150C1B;
+}
+
+body.home #naughty-nights .eg-story__products .eg-product-card__title,
+body.home #naughty-nights .eg-story__products .eg-product-card__title a {
+	color: #FFFFFF;
+}
+
+body.home #naughty-nights .eg-story__products .eg-product-card__price,
+body.home #naughty-nights .eg-story__products .eg-product-card__price ins {
+	color: #FF7597;
+}
+
+body.home #naughty-nights .eg-story__products .eg-product-card__price del {
+	color: #B39EB7;
+}
+
+body.home #naughty-nights .eg-story__products a.eg-product-card__action,
+body.home #naughty-nights .eg-story__products .woocommerce .eg-product-card a.eg-product-card__action {
+	background: #D31E47;
+	color: #FFFFFF;
+}
+
+body.home #naughty-nights .eg-story__products a.eg-product-card__action:hover {
+	background: #E02853;
+}
+
+/* ==========================================================================
+   TRUST PROMISES: Ultra-Compressed Reassurance Ribbon
+   (Almost no text: icon + bold fact in sleek beauty pills)
+   ========================================================================== */
+body.home #trust-promises {
+	padding-block: clamp(2rem, 4vw, 3rem);
+	background: #FFFDFB;
+	border-block-start: 1px solid rgba(28, 19, 29, 0.06);
+}
+
+body.home #trust-promises .eg-features__list {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0.85rem;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+@media (min-width: 52rem) {
+	body.home #trust-promises .eg-features__list {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 1rem;
+	}
+}
+
+body.home #trust-promises .eg-features__item {
+	background: #FFFFFF;
+	padding: 0.75rem 1rem;
+	border-radius: var(--radius-sm);
+	border: 1px solid var(--color-line);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	text-align: start;
+	transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+body.home #trust-promises .eg-features__item:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+body.home #trust-promises .eg-features__icon {
+	inline-size: 2.25rem;
+	block-size: 2.25rem;
+	min-inline-size: 2.25rem;
+	border-radius: var(--radius-xs);
+	background: var(--color-primary-mist);
+	color: var(--color-primary);
+	display: inline-grid;
+	place-items: center;
+	margin-block-end: 0;
+}
+
+body.home #trust-promises .eg-features__icon .eg-icon {
+	inline-size: 1.15rem;
+	block-size: 1.15rem;
+}
+
+body.home #trust-promises .eg-features__body {
+	display: grid;
+	gap: 0.1rem;
+}
+
+body.home #trust-promises .eg-features__item-title {
+	font-size: 0.875rem;
+	font-weight: 700;
+	color: var(--color-ink);
+	line-height: 1.2;
+}
+
+body.home #trust-promises .eg-features__text {
+	font-size: 0.75rem;
+	line-height: 1.3;
+	color: var(--color-ink-muted);
+}

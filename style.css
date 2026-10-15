@@ -1,0 +1,14 @@
+/*
+Theme Name: Misr Child (Loly's)
+Description: Store layer for Loly's Glam (lolys.test / lolys.otour.store) on top of the Egstore theme: homepage composition, copy, brand styling, and discovery kit free shipping.
+Theme URI: https://github.com/ayop0dev/misr-child-lolys
+Template: Egstore-theme
+Version: 1.0.0
+Requires at least: 6.6
+Requires PHP: 8.1
+Text Domain: misr-child-lolys
+Update URI: https://updates.dokanelbanat.com/misr-child-lolys
+Egstore Update Key: TODO_SIGNING_PUBLIC_KEY_PLACEHOLDER
+*/
+
+/* Styles live in assets/store.css (enqueued by functions.php). */
