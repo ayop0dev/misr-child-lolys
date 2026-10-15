@@ -20,7 +20,7 @@
     - Cut copy by ~70%. Eliminated redundant scent chip tags that repeated the product names shown right below.
     - Kept only confirmed promises: free shipping on Full Kit only, 1-3 days delivery, COD & Vodafone Cash, 10 ml minis, long-lasting, French oils made in Egypt, cruelty-free, and "up to 12 hours" only for Naughty Nights.
   - **Compressed Reassurance Ribbon**: Merged verbose "Shop with Ease" and "Why Minis" card blocks into an ultra-lean 4-pill horizontal reassurance strip with zero paragraph text.
-  - **Documentation & AI Prompts**: Synchronized `assets/images/PROMPTS.md` and `README.md` with all verified attachment IDs, dimensions, and AI prompts.
+  - **Documentation & AI Prompts**: Synchronized `docs/image-prompts.md` and `README.md` with all verified attachment IDs, dimensions, and AI prompts.
 
 ## 1.0.0
 
@@ -33,4 +33,4 @@
 - Strictly verified store promises: delivery in 1-3 business days, cash on delivery / Vodafone Cash, 10 ml minis, long-lasting formulation made in Egypt with French fragrance oils, cruelty-free.
 - Committed idempotent catalog setup script (`scripts/setup-catalog.sh`) for categories and Sugar Rush hiding.
 - High-performance WebP photography under strict size budgets (hero <= 150 KB, others <= 80 KB) with no human faces, foreign brand bottles, or text.
-- AI generation prompt book in `assets/images/PROMPTS.md`.
+- AI generation prompt book in `docs/image-prompts.md`.

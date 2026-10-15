@@ -29,7 +29,7 @@ Only these confirmed facts and promises are stated on the storefront:
 | `functions.php` | Enqueues `assets/store.css` after `egstore-core` and requires `inc/free-shipping.php`. |
 | `scripts/setup-catalog.sh` | Committed idempotent WP-CLI catalog setup script. |
 | `assets/images/` | High-quality WebP stock photos cropped and optimized for ingredient and mood slots. Real box and ingredient shots are loaded directly from the WordPress media library. |
-| `assets/images/PROMPTS.md` | Detailed AI generation briefs for all image slots so the owner can replace stock assets with bespoke generated imagery. |
+| `docs/image-prompts.md` | Detailed AI generation briefs for all image slots so the owner can replace stock assets with bespoke generated imagery. |
 
 ## How to Run `scripts/setup-catalog.sh`
 The catalog setup script is fully idempotent and safe to run multiple times:
